@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>开元棋牌 · 日常游戏参考页</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+		}
+
+		body {
+			background: linear-gradient(145deg, #fdefd7 0%, #fbe3c5 40%, #f6d5b0 100%);
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 1.5rem 1rem 3rem;
+		}
+
+		.page-wrapper {
+			max-width: 960px;
+			width: 100%;
+			margin: 0 auto;
+		}
+
+		/* 白色卡片质感，圆融柔和 */
+		.card {
+			background: #fffffffa;
+			border-radius: 36px;
+			padding: 2.4rem 2.2rem;
+			box-shadow: 0 12px 28px rgba(140, 80, 30, 0.10), 0 4px 12px rgba(0,0,0,0.03);
+			backdrop-filter: blur(1px);
+			transition: all 0.2s;
+		}
+
+		.card + .card {
+			margin-top: 1.8rem;
+		}
+
+		/* hero区——特别处理 */
+		.hero-card {
+			padding: 3rem 2.5rem 2.8rem;
+			background: #fffcf8;
+			background-image: radial-gradient(circle at 90% 10%, #fae2cb 0%, #fffcf8 70%);
+		}
+
+		h1 {
+			font-size: 2.6rem;
+			font-weight: 500;
+			letter-spacing: 1px;
+			color: #51341e;
+			line-height: 1.2;
+			margin-bottom: 0.5rem;
+		}
+
+		.hero-sub {
+			font-size: 1.1rem;
+			color: #6e4f33;
+			max-width: 70%;
+			margin: 0.5rem 0 1.2rem;
+			line-height: 1.5;
+		}
+
+		.hero-tagline {
+			display: inline-block;
+			background: #dbaa7b30;
+			padding: 0.25rem 1rem;
+			border-radius: 50px;
+			font-size: 0.95rem;
+			color: #5a3f28;
+			border: 1px solid #e9cbb1;
+		}
+
+		/* 通用标题 */
+		.section-title {
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: #3b271a;
+			margin-bottom: 1.2rem;
+			display: flex;
+			align-items: center;
+			gap: 0.4rem;
+		}
+
+		.section-title:after {
+			content: '';
+			flex: 1;
+			height: 2px;
+			background: linear-gradient(90deg, #dbaa7b 0%, transparent 90%);
+			margin-left: 0.6rem;
+		}
+
+		p {
+			color: #2f2219;
+			line-height: 1.7;
+			font-size: 1rem;
+			margin-bottom: 0.9rem;
+		}
+
+		.feature-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.2rem;
+			margin: 1.5rem 0 0.5rem;
+		}
+
+		.feature-item {
+			background: #fcf3ea;
+			border-radius: 26px;
+			padding: 1.2rem 1.2rem 1rem;
+			border: 1px solid #eedbcb;
+		}
+
+		.feature-item strong {
+			display: block;
+			font-weight: 600;
+			color: #5e3f27;
+			margin-bottom: 0.3rem;
+			font-size: 1.05rem;
+		}
+
+		.feature-item p {
+			font-size: 0.92rem;
+			margin-bottom: 0;
+			color: #4f3929;
+		}
+
+		.faq-block {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+
+		.faq-entry {
+			border-bottom: 1px solid #eddac9;
+			padding-bottom: 0.8rem;
+		}
+
+		.faq-entry:last-child {
+			border-bottom: 0;
+			padding-bottom: 0;
+		}
+
+		.faq-q {
+			font-weight: 550;
+			color: #3b281c;
+			font-size: 1rem;
+			margin-bottom: 0.2rem;
+		}
+
+		.faq-a {
+			color: #4b382a;
+			font-size: 0.93rem;
+			line-height: 1.6;
+		}
+
+		/* 圆角按钮感链接 */
+		.btn-link {
+			display: inline-block;
+			background: #e7cfba;
+			color: #2f1b0e;
+			padding: 0.4rem 1.4rem;
+			border-radius: 40px;
+			font-weight: 500;
+			text-decoration: none;
+			border: 1px solid #dbb99b;
+			transition: 0.15s ease;
+			font-size: 0.95rem;
+			box-shadow: 0 2px 6px rgba(110, 60, 20, 0.06);
+		}
+
+		.btn-link:hover {
+			background: #d9b795;
+			border-color: #b68762;
+			transform: scale(1.02);
+			box-shadow: 0 4px 10px rgba(100, 55, 20, 0.08);
+		}
+
+		a.naked-link {
+			color: #6e3f1f;
+			text-decoration: underline;
+			text-underline-offset: 3px;
+			text-decoration-color: #cfaa88;
+			font-weight: 450;
+			transition: 0.1s;
+		}
+
+		a.naked-link:hover {
+			color: #3d2517;
+			text-decoration-color: #a17758;
+		}
+
+		.bottom-links {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1rem 1.6rem;
+			margin: 1.8rem 0 0.6rem;
+		}
+
+		.footer-note {
+			text-align: center;
+			font-size: 0.85rem;
+			color: #674f3b;
+			margin-top: 2.2rem;
+			opacity: 0.7;
+		}
+
+		/* 响应式 */
+		@media (max-width: 640px) {
+			.hero-card {
+				padding: 2rem 1.5rem;
+			}
+			h1 {
+				font-size: 2rem;
+			}
+			.hero-sub {
+				max-width: 100%;
+				font-size: 1rem;
+			}
+			.feature-grid {
+				grid-template-columns: 1fr;
+			}
+			.card {
+				padding: 1.8rem 1.2rem;
+				border-radius: 28px;
+			}
+			.section-title {
+				font-size: 1.25rem;
+			}
+			.bottom-links {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
+		@media (max-width: 480px) {
+			body {
+				padding: 0.8rem 0.6rem 2rem;
+			}
+			.page-wrapper {
+				max-width: 100%;
+			}
+			.feature-item {
+				padding: 0.9rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page-wrapper">
+
+		<!-- HERO 区：暖色渐变背景 + 白卡片 -->
+		<div class="card hero-card">
+			<h1>开元棋牌 · 随手翻阅</h1>
+			<div class="hero-tagline">日常查询 · 对照 · 延伸阅读</div>
+			<p class="hero-sub">
+				如果你常通过棋牌类游戏放松、思考或与朋友切磋，<a href="https://main-kygaming.com" class="naked-link">开元棋牌</a>这个名字或许不陌生。我们并不强调“首选”或“最佳”，而是把它看作一个可参考的落脚点——一个在规则、风格和社区氛围上值得了解的线上空间。
+			</p>
+			<p style="margin-top: 0.8rem;">
+				无论你是刚接触到这类平台，还是想换个环境体验不同的对局节奏，偶尔翻翻这里的信息，或许能帮你对当前的选择有更立体的认识。
+			</p>
+			<div style="margin-top: 1rem;">
+				<a href="https://main-kygaming.com" class="btn-link">开元棋牌</a>
+			</div>
+		</div>
+
+		<!-- 优势区：特点与对照视角 -->
+		<div class="card">
+			<div class="section-title">几个容易被注意到的特点</div>
+			<div class="feature-grid">
+				<div class="feature-item">
+					<strong>牌局多样，节奏自选</strong>
+					<p>从经典扑克到地方变种，不同限时、不同底注的桌台都有。你可以按自己的步调选桌，不用被固定节奏推着走。</p>
+				</div>
+				<div class="feature-item">
+					<strong>界面干净，干扰少</strong>
+					<p>多数页面以清晰牌面和简洁信息流为主，没有过度闪烁的弹窗或冗余动画，专注对局本身。</p>
+				</div>
+				<div class="feature-item">
+					<strong>社区氛围偏静</strong>
+					<p>玩家之间的互动以牌桌动作为主，公共聊天区保持基本礼仪，整体环境更适合安静思考的玩家。</p>
+				</div>
+				<div class="feature-item">
+					<strong>常见玩法覆盖全</strong>
+					<p>不论是德州、奥马哈、梭哈还是斗地主、炸金花等，基本都能找到匹配场次，不用频繁切换平台。</p>
+				</div>
+			</div>
+			<p style="margin-top: 1.2rem;">当然，每个平台都有自己的细微差异。如果你正在做横向对照，不妨把以上几点作为初步印象，再结合自己的偏好做判断。</p>
+		</div>
+
+		<!-- 说明区：延伸阅读 + 使用场景 -->
+		<div class="card">
+			<div class="section-title">从查询到延伸阅读</div>
+			<p>有时候我们打开一个游戏页面，只是想快速查一下某种玩法的规则细节，或者看看当前的牌桌人数、底注范围。<a href="https://main-kygaming.com" class="naked-link">开元棋牌</a>在这类“轻查询”场景中表现得比较自然：</p>
+			<ul style="padding-left: 1.4rem; margin: 0.8rem 0; color: #2f2219; line-height: 1.8;">
+				<li>想试新玩法时，直接搜索牌型名称即可找到对应说明。</li>
+				<li>遇到不熟悉的规则变体，可以在帮助模块翻阅简明对照表。</li>
+				<li>如果只是随便逛逛，大厅里按热度排列的桌台也能提供一些灵感。</li>
+			</ul>
+			<p>这种“即查即走”的体验，对于习惯把牌类活动当作日常消遣的人来说，少了一些负担，多了一点自在。</p>
+		</div>
+
+		<!-- FAQ摘要区 -->
+		<div class="card">
+			<div class="section-title">FAQ · 快速浏览</div>
+			<div class="faq-block">
+				<div class="faq-entry">
+					<div class="faq-q">▸ 开元棋牌适合新手吗？</div>
+					<div class="faq-a">入门门槛不高。大部分桌台设有低额练习区，新手可以先观察几轮再参与。规则说明也写得比较直白，没有太多术语堆砌。</div>
+				</div>
+				<div class="faq-entry">
+					<div class="faq-q">▸ 需要下载客户端吗？</div>
+					<div class="faq-a">目前可通过浏览器直接访问，适配手机与电脑。部分功能在移动端略有精简，但核心对局流程完整。</div>
+				</div>
+				<div class="faq-entry">
+					<div class="faq-q">▸ 如何快速了解当前有哪些玩法？</div>
+					<div class="faq-a">进入首页后，大厅列表会按热度展示主要牌类。你也可以使用筛选功能，按牌种、人数或限时条件缩小范围。</div>
+				</div>
+				<div class="faq-entry">
+					<div class="faq-q">▸ 平台有没有真人玩家？</div>
+					<div class="faq-a">大部分桌台为实时匹配真人玩家，偶尔会有机器人补位以保持牌桌人数。具体可以在桌台信息中查看当前玩家标签。</div>
+				</div>
+			</div>
+			<p style="margin-top: 1rem; font-size: 0.9rem; color: #4f3929;">以上内容仅为常见疑问摘要，详细信息建议直接参考对应页面的帮助说明。</p>
+		</div>
+
+		<!-- 底部链接区域 -->
+		<div class="card" style="padding: 1.5rem 2rem; text-align: center;">
+			<div style="display: flex; flex-direction: column; align-items: center; gap: 0.6rem;">
+				<p style="margin-bottom: 0.2rem; font-weight: 450;">延伸阅读 / 参考链接</p>
+				<div class="bottom-links">
+					<a href="https://main-kygaming.com" class="btn-link">开元棋牌</a>
+					<span style="color: #7f6248; padding: 0 0.2rem;">·</span>
+					<a href="https://main-kygaming.com" class="naked-link">开元棋牌</a>
+					<span style="color: #7f6248; padding: 0 0.2rem;">·</span>
+					<span style="color: #7f6248; background: #eee0d3; padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.9rem;">常见玩法一览</span>
+				</div>
+				<p style="font-size: 0.85rem; color: #5d4534; margin-top: 0.5rem;">
+					以上链接均指向同一个参考源，你可根据自己需要选择是否深入浏览。
+				</p>
+			</div>
+		</div>
+
+		<!-- 页脚小字 -->
+		<div class="footer-note">
+			— 页面内容仅为信息整理与日常参考，不构成任何形式推荐或引导 —
+		</div>
+	</div>
+</body>
+</html>
